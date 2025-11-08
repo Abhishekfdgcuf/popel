@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popel - Serverless Blog Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Popel</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#blogs">Blogs</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Welcome to Popel</h2>
+                    <p class="hero-description">
+                        A beautiful serverless blog platform powered by Google Sheets. 
+                        Discover amazing content without the complexity of traditional backends.
+                    </p>
+                    <button class="cta-button" onclick="scrollToBlogs()">
+                        Explore Blogs
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Configuration Section -->
+        <section class="api-config">
+            <div class="container">
+                <div class="config-card">
+                    <h3>Configure Your Data Source</h3>
+                    <p>Enter your SheetDB API URL to load your blog content:</p>
+                    <div class="input-group">
+                        <input 
+                            type="url" 
+                            id="apiUrl" id
+                            placeholder="https://sheetdb.io/api/v1/zicfx7auv5bea"
+                            class="api-input"
+                        >
+                        <button onclick="loadBlogs()" class="load-button">Load Blogs</button>
+                    </div>
+                    <div class="api-status" id="apiStatus"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Carousel Section -->
+        <section class="featured-section">
+            <div class="container">
+                <h3 class="section-title">Featured Posts</h3>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" onclick="previousSlide()">‹</button>
+                    <div class="carousel" id="featuredCarousel">
+                        <!-- Featured posts will be loaded here -->
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="nextSlide()">›</button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <!-- All Blogs Grid Section -->
+        <section id="blogs" class="blogs-section">
+            <div class="container">
+                <h3 class="section-title">All Blog Posts</h3>
+                <div class="blogs-grid" id="blogsGrid">
+                    <!-- All blog posts will be loaded here -->
+                </div>
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading blogs...</p>
+                </div>
+                <div class="no-blogs" id="noBlogs" style="display: none;">
+                    <p>No blogs found. Please configure your API URL above.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Popel. A serverless blog platform powered by Google Sheets.</p>
+                <p>Built with ❤️ for the modern web.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
